@@ -20,11 +20,10 @@ GOARCH_arm64 := arm64
 GOARCH_x86_64 := amd64
 GOOS_macosx := darwin
 GOOS_iphoneos := ios
-
-UNAME := $(shell uname -m)
-ifeq ($(UNAME), $(GOARCH_arm64))
-	GOOS_iphonesimulator := ios
-endif
+GOOS_iphonesimulator := ios
+LLVM_TARGET_OS_macosx := darwin
+LLVM_TARGET_OS_iphoneos := ios$($(DEPLOYMENT_TARGET_CLANG_ENV_NAME))
+LLVM_TARGET_OS_iphonesimulator := ios$($(DEPLOYMENT_TARGET_CLANG_ENV_NAME))-simulator
 
 build: $(DESTDIR)/libwg-go.a
 version-header: $(DESTDIR)/wireguard-go-version.h
@@ -40,7 +39,7 @@ $(GOROOT)/.prepared:
 
 define libwg-go-a
 $(BUILDDIR)/libwg-go-$(1).a: export CGO_ENABLED := 1
-$(BUILDDIR)/libwg-go-$(1).a: export CGO_CFLAGS := $(CFLAGS_PREFIX) $(ARCH)
+$(BUILDDIR)/libwg-go-$(1).a: export CGO_CFLAGS := $(CFLAGS_PREFIX) $(ARCH) -target $(ARCH)-apple-$(LLVM_TARGET_OS_$(PLATFORM_NAME))
 $(BUILDDIR)/libwg-go-$(1).a: export CGO_LDFLAGS := $(CFLAGS_PREFIX) $(ARCH)
 $(BUILDDIR)/libwg-go-$(1).a: export GOOS := $(GOOS_$(PLATFORM_NAME))
 $(BUILDDIR)/libwg-go-$(1).a: export GOARCH := $(GOARCH_$(1))
