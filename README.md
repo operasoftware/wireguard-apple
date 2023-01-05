@@ -32,6 +32,30 @@ $ open WireGuard.xcodeproj
 
 - Flip switches, press buttons, and make whirling noises until Xcode builds it.
 
+## WireGuardKit integration: xcframework
+
+### Use WireGuardKit.xcframework.zip from releases with SPM
+
+WireGuardKit.xcframework.zip is produced by the GH action, and can be integrated in a Package.swift with:
+
+    .binaryTarget(
+      name: "WireGuardKit",
+      url: "https://github.com/battlmonstr/wireguard-apple/releases/download/<version>/WireGuardKit.xcframework.zip",
+      checksum: "..."
+    )
+
+To trigger the action and release - push a new tag.
+
+### Build WireGuardKit.xcframework manually
+
+Inside a checkout of wireguard-apple:
+
+    make wg-go-all
+
+Inside a checkout of https://github.com/unsignedapps/swift-create-xcframework :
+
+    swift run swift-create-xcframework --package-path ../wireguard-apple --xcconfig wg-go.xcconfig --platform ios
+
 ## WireGuardKit integration
 
 1. Open your Xcode project and add the Swift package with the following URL:
