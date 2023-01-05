@@ -22,4 +22,4 @@ jobs:
       - name: Create XCFramework
         uses: unsignedapps/swift-create-xcframework@v2.3.0
         with:
-          platforms: iphoneos,iphonesimulator
+          platforms: ios
