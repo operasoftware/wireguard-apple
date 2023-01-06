@@ -1,5 +1,4 @@
-module WireGuardKitGo {
+framework module WireGuardKitGo {
     umbrella header "wireguard.h"
-    link "wg-go"
     export *
 }
