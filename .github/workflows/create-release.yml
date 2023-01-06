@@ -17,8 +17,14 @@ jobs:
 
       - uses: actions/checkout@v3
 
-      - name: debug
-        run: echo data > WireGuardKit.zip && echo 123 > WireGuardKit.sha256
+      - name: Build WireGuardKitGo
+        run: make wg-go-all
+
+      - name: Create XCFramework
+        uses: unsignedapps/swift-create-xcframework@v2.3.0
+        with:
+          platforms: ios
+          xcconfig: wg-go.xcconfig
 
       - uses: ncipollo/release-action@v1.12.0
         with:
