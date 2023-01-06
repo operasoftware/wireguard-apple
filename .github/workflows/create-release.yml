@@ -20,7 +20,7 @@ jobs:
       - name: debug
         run: echo data > WireGuardKit.zip && echo 123 > WireGuardKit.sha256
 
-      - uses: ncipollo/release-action@v1.12
+      - uses: ncipollo/release-action@v1.12.0
         with:
           artifacts: WireGuardKit.zip
           bodyFile: WireGuardKit.sha256
