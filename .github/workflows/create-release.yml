@@ -19,3 +19,8 @@ jobs:
 
       - name: debug
         run: touch WireGuardKit.zip && WireGuardKit.sha256
+
+      - uses: ncipollo/release-action@v1.12
+        with:
+          artifacts: WireGuardKit.zip
+          bodyFile: WireGuardKit.sha256
