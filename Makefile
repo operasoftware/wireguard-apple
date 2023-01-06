@@ -27,3 +27,7 @@ wg-go-iphoneos:
 wg-go-iphonesimulator:
 	$(MAKE) -C Sources/WireGuardKitGo clean
 	$(MAKE) -C Sources/WireGuardKitGo DEPLOYMENT_TARGET_CLANG_FLAG_NAME=mios-version-min DEPLOYMENT_TARGET_CLANG_ENV_NAME=IPHONEOS_DEPLOYMENT_TARGET IPHONEOS_DEPLOYMENT_TARGET=12.0 "ARCHS=arm64 x86_64" PLATFORM_NAME=iphonesimulator "CONFIGURATION_BUILD_DIR=$(CURDIR)/Sources/WireGuardKitGo/out/ios-arm64_x86_64-simulator"
+
+wg-go-framework-zip: wg-go-framework
+	cd Sources/WireGuardKitGo/out && zip -r WireGuardKitGo.xcframework.zip WireGuardKitGo.xcframework/
+	cd Sources/WireGuardKitGo/out && swift package compute-checksum *.zip > WireGuardKitGo.xcframework.zip.sha256
