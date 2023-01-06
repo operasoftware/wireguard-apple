@@ -24,3 +24,4 @@ jobs:
         with:
           artifacts: Sources/WireGuardKitGo/out/WireGuardKitGo.xcframework.zip
           bodyFile: Sources/WireGuardKitGo/out/WireGuardKitGo.xcframework.zip.sha256
+          makeLatest: true
