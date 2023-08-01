@@ -25,8 +25,8 @@ let package = Package(
         ),
         .binaryTarget(
             name: "WireGuardKitGo",
-            url: "https://github.com/battlmonstr/wireguard-apple/releases/download/1.0.15.11/WireGuardKitGo.xcframework.zip",
-            checksum: "54f50b13f145007f94e420205830d3df5cddef4a32ce3eaa0106e4e17906ac29"
+            url: "https://github.com/battlmonstr/wireguard-apple/releases/download/1.0.15.12/WireGuardKitGo.xcframework.zip",
+            checksum: "29051bffb4af1e407ee69039b961a4ce9e73691b84d5a2f834be57720668c1ac"
         )
     ]
 )
