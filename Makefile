@@ -13,6 +13,7 @@ wg-go-framework: wg-go-iphoneos wg-go-iphonesimulator
 		cp Sources/WireGuardKitGo/out/$$id/libwg-go.a Sources/WireGuardKitGo/out/$$id/WireGuardKitGo.framework/WireGuardKitGo ; \
 		cp -R Sources/WireGuardKitGo/.tmp/Headers Sources/WireGuardKitGo/out/$$id/WireGuardKitGo.framework ; \
 		cp -R Sources/WireGuardKitGo/.tmp/Modules Sources/WireGuardKitGo/out/$$id/WireGuardKitGo.framework ; \
+		cp Sources/WireGuardKitGo/Info.plist Sources/WireGuardKitGo/out/$$id/WireGuardKitGo.framework ; \
 	done
 
 	xcodebuild -create-xcframework \
