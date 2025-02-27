@@ -7,7 +7,7 @@ let package = Package(
     name: "WireGuardKit",
     platforms: [
         .macOS(.v10_14),
-        .iOS(.v14)
+        .iOS(.v15)
     ],
     products: [
         .library(name: "WireGuardKit", targets: ["WireGuardKit"])
@@ -25,8 +25,8 @@ let package = Package(
         ),
         .binaryTarget(
             name: "WireGuardKitGo",
-            url: "https://github.com/operasoftware/wireguard-apple/releases/download/1.0.16.2/WireGuardKitGo.xcframework.zip",
-            checksum: "4a9b3aa1954ca02457328c988a3e40848bf5c5b35674a58fbe55b08a9d4ac8d4"
+            url: "https://github.com/operasoftware/wireguard-apple/releases/download/1.0.16.3/WireGuardKitGo.xcframework.zip",
+            checksum: "ce71499d16ec668468bb1c53fc10176a26be5341c12157e4026c22e0a2194b1b"
         )
     ]
 )
